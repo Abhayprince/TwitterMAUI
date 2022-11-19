@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="TwitterMAUI.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:TwitterMAUI"
+    xmlns:controls="clr-namespace:TwitterMAUI.Controls"
+    Shell.FlyoutBehavior="Flyout"
+    Shell.FlyoutIcon="user.png"
+    Shell.BackgroundColor="#ddd"
+    >
+
+    <Shell.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Image" x:Key="Icon">
+                <Setter Property="Aspect" Value="AspectFill"/>
+                <Setter Property="HeightRequest" Value="30"/>
+                <Setter Property="WidthRequest" Value="30"/>
+                <Setter Property="HorizontalOptions" Value="Start"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+            </Style>
+
+            <Style TargetType="Label" x:Key="MenuName">
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="FontSize" Value="25"/>
+                <Setter Property="TextColor" Value="Black"/>
+                <Setter Property="HorizontalOptions" Value="Start"/>
+                <Setter Property="VerticalOptions" Value="Start"/>
+                <Setter Property="VerticalOptions" Value="Center"/>                
+            </Style>
+        </ResourceDictionary>
+    </Shell.Resources>
+    
+    <Shell.FlyoutHeader>
+        <controls:Header />
+    </Shell.FlyoutHeader>
+    
+    <Shell.FlyoutContent>
+        <ScrollView Padding="30">
+            <VerticalStackLayout Spacing="30">
+                <Grid ColumnDefinitions="Auto, *"
+                  ColumnSpacing="25">
+                    <Image Grid.Column="0"
+                       Source="user_filled.png"
+                       Style="{x:StaticResource Icon}"/>
+                    <Label Grid.Column="1"
+                       Text="Profile"
+                       Style="{x:StaticResource MenuName}"/>
+                </Grid>
+
+                <Grid ColumnDefinitions="Auto, *"
+                  ColumnSpacing="25">
+                    <Image Grid.Column="0"
+                       Source="comment.png"
+                       Style="{x:StaticResource Icon}"/>
+                    <Label Grid.Column="1"
+                       Text="Topics"
+                       Style="{x:StaticResource MenuName}"/>
+                </Grid>
+
+                <Grid ColumnDefinitions="Auto, *"
+                  ColumnSpacing="25">
+                    <Image Grid.Column="0"
+                       Source="bookmark.png"
+                       Style="{x:StaticResource Icon}"
+                           WidthRequest="20"/>
+                    <Label Grid.Column="1"
+                       Text="Bookmarks"
+                       Style="{x:StaticResource MenuName}"/>
+                </Grid>
+
+                <Grid ColumnDefinitions="Auto, *"
+                  ColumnSpacing="25">
+                    <Image Grid.Column="0"
+                       Source="list.png"
+                       Style="{x:StaticResource Icon}"/>
+                    <Label Grid.Column="1"
+                       Text="Lists"
+                       Style="{x:StaticResource MenuName}"/>
+                </Grid>
+
+                <Grid ColumnDefinitions="Auto, *, Auto"
+                  ColumnSpacing="25">
+                    <Image Grid.Column="0"
+                       Source="user_filled.png"
+                       Style="{x:StaticResource Icon}"/>
+                    <Label Grid.Column="1"
+                       Text="Twitter Circle"
+                       Style="{x:StaticResource MenuName}"/>
+
+                    <Border Grid.Column="2"
+                            Stroke="White"
+                            StrokeShape="RoundRectangle 50"
+                            BackgroundColor="#d9f5fd"
+                            Padding="0"
+                            HeightRequest="25"
+                            VerticalOptions="Center"
+                            WidthRequest="40">
+                        <Label Text="New"                           
+                               FontAttributes="Bold"
+                               TextColor="#799fbf"
+                               FontSize="12"
+                               VerticalTextAlignment="Center"
+                               HorizontalTextAlignment="Center"
+                           />
+                    </Border>
+                    
+                </Grid>
+                
+            </VerticalStackLayout>
+            
+        </ScrollView>
+    </Shell.FlyoutContent>
+    
+    <Shell.FlyoutFooter>
+        <FlexLayout JustifyContent="SpaceBetween"
+                    HeightRequest="50"
+                    >
+            <Image Source="lightbulb.png"
+                   Aspect="AspectFill"
+                   HeightRequest="35"
+                   WidthRequest="25"
+                   Margin="10"/>
+
+            <Image Source="qrcode.png"
+                   Aspect="AspectFill"
+                   HeightRequest="25"
+                   WidthRequest="25"
+                   Margin="10"/>
+        </FlexLayout>
+    </Shell.FlyoutFooter>
+    
+    <TabBar>
+        <ShellContent
+            Icon="house.png"
+        ContentTemplate="{DataTemplate local:MainPage}"
+        Route="MainPage" />
+        
+        <ShellContent
+        Title=""
+            Icon="zoom.png"
+        ContentTemplate="{DataTemplate local:MainPage}"
+        Route="MainPage" />
+        
+        <ShellContent
+        Title=""
+            Icon="microphone.png"
+        ContentTemplate="{DataTemplate local:MainPage}"
+        Route="MainPage" />
+        
+        <ShellContent
+        Title=""
+            Icon="bell.png"
+        ContentTemplate="{DataTemplate local:MainPage}"
+        Route="MainPage" />
+        
+        <ShellContent
+        Title=""
+            Icon="envelope.png"
+        ContentTemplate="{DataTemplate local:MainPage}"
+        Route="MainPage" />
+    </TabBar>
+
+</Shell>

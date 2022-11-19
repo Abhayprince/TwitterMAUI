@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TwitterMAUI.Controls.Header"
+             Padding="30">
+
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label" x:Key="FollowCount">
+                <Setter Property="FontSize" Value="15" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="TextColor" Value="#555" />
+            </Style>
+
+            <Style TargetType="Label" x:Key="LightLabel">
+                <Setter Property="FontSize" Value="15" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="TextColor" Value="Grey" />
+            </Style>
+
+        </ResourceDictionary>
+    </ContentView.Resources>
+
+    <Grid BackgroundColor="#ddd"
+          Padding="0,0,0,1">
+        <Grid ColumnDefinitions="*, Auto"
+         RowDefinitions="Auto, Auto, Auto, Auto"
+          BackgroundColor="White"
+              Padding="0, 0, 0, 30"
+          >
+
+            <Border Grid.Row="0"
+               Grid.Column="0"
+                Stroke="Black"
+                StrokeThickness="1"
+                StrokeShape="RoundRectangle 50"
+                HeightRequest="50"
+               WidthRequest="50"
+                HorizontalOptions="Start">
+                <Image 
+               Source="user_filled.png"
+               Aspect="AspectFill"
+               HeightRequest="30"
+               WidthRequest="30" />
+            </Border>
+
+            <Grid Grid.Row="0"
+              Grid.Column="1"
+              HeightRequest="40"
+              WidthRequest="40">
+                <Ellipse Stroke="Black"
+                     StrokeThickness="3"
+                     HeightRequest="40"
+                     WidthRequest="40" />
+                <Image Source="vertical_menu.png"
+                   Aspect="AspectFill"
+                   HeightRequest="15"
+                   WidthRequest="10"
+                   VerticalOptions="Start"
+                   />
+            </Grid>
+
+            <Label Grid.Row="1"
+               Grid.ColumnSpan="2"
+               Text="Abhay Prince"
+               FontAttributes="Bold"
+               FontSize="22"
+               TextColor="Black"
+               Margin="0, 20, 0, 0"/>
+
+            <Label Grid.Row="2"
+               Grid.ColumnSpan="2"
+               Text="@AbhayPrince3"
+               Style="{x:StaticResource LightLabel}"/>
+
+            <HorizontalStackLayout Grid.Row="3"
+                               Grid.ColumnSpan="2"
+                               Margin="0, 20, 0, 0">
+                <Label Text="204" 
+                   Style="{x:StaticResource FollowCount}"  />
+
+                <Label Text="Following"
+                   Style="{x:StaticResource LightLabel}"
+                   Margin="5, 0, 0, 0"/>
+
+                <Label Text="78" 
+                   Style="{x:StaticResource FollowCount}"
+                   Margin="20, 0, 0, 0"/>
+
+                <Label Text="Follower"
+                   Style="{x:StaticResource LightLabel}"
+                   Margin="5, 0, 0, 0"/>
+            </HorizontalStackLayout>
+
+        </Grid>
+    </Grid>
+
+
+
+</ContentView>
